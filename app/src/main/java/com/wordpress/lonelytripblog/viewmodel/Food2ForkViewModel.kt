@@ -25,4 +25,8 @@ open class Food2ForkViewModel(private val food2ForkRepository: Food2ForkReposito
             }
         }
     }
+
+    fun update() {
+        food2ForkRepository.forceLoading()
+    }
 }

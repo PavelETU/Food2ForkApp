@@ -68,14 +68,12 @@ class UiTests {
     @Test
     fun listOfItemsDisplayedProperly() {
         val listOfRecipesToDisplay = listOf(
-            Recipe("First Title", ""),
-            Recipe("Second Title", "")
+                Recipe("First Title", "")
         )
         listOfRecipes.postValue(listOfRecipesToDisplay)
 
         onView(withText("Go")).perform(click())
 
         onView(withText("First Title")).check(matches(isCompletelyDisplayed()))
-        onView(withText("Second Title")).check(matches(isCompletelyDisplayed()))
     }
 }

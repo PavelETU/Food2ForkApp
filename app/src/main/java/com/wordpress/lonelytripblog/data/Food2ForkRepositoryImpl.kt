@@ -17,6 +17,10 @@ class Food2ForkRepositoryImpl(private val retrofitInterface: RetrofitInterface,
         return result
     }
 
+    override fun forceLoading() {
+        updateResultFromInternet()
+    }
+
     private fun updateResultFromInternet() {
         retrofitInterface.getListOfRecipes().enqueue(object : Callback<AnswerFromInternet> {
             override fun onFailure(call: Call<AnswerFromInternet>, t: Throwable) {

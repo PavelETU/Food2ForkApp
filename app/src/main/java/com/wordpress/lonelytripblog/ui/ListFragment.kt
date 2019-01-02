@@ -22,6 +22,7 @@ class ListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        refresh_layout.setOnRefreshListener { viewModel.update() }
         viewModel.getListOfRecipes().observe(this, Observer {
             it?.bindToUi()
         })
@@ -32,6 +33,7 @@ class ListFragment : Fragment() {
 
     private fun List<Recipe>.bindToUi() {
         progress_bar.visibility = View.GONE
+        refresh_layout.isRefreshing = false
         message.visibility = View.GONE
         list_of_items.visibility = View.VISIBLE
         list_of_items.adapter = RecipeListAdapter(this)
@@ -39,6 +41,7 @@ class ListFragment : Fragment() {
 
     private fun String.bindToUi() {
         progress_bar.visibility = View.GONE
+        refresh_layout.isRefreshing = false
         list_of_items.visibility = View.GONE
         message.visibility = View.VISIBLE
         message.text = this
