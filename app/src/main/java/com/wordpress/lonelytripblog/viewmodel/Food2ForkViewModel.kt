@@ -7,7 +7,7 @@ import com.wordpress.lonelytripblog.data.Food2ForkRepository
 import com.wordpress.lonelytripblog.data.Recipe
 import com.wordpress.lonelytripblog.data.Result
 
-class Food2ForkViewModel(private val food2ForkRepository: Food2ForkRepository) : ViewModel() {
+class Food2ForkViewModel(val food2ForkRepository: Food2ForkRepository) : ViewModel() {
     public fun getListOfRecipes(): LiveData<List<Recipe>?> {
         return Transformations.map(food2ForkRepository.getRecipes()) {
             when (it) {

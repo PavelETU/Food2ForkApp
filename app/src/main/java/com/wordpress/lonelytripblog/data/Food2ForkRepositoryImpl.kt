@@ -11,21 +11,22 @@ class Food2ForkRepositoryImpl(private val retrofitInterface: RetrofitInterface,
                               private val stringProvider: StringProvider): Food2ForkRepository {
     override fun getRecipes(): LiveData<Result<List<Recipe>>> {
         val result = MutableLiveData<Result<List<Recipe>>>()
-        retrofitInterface.getListOfRecipes().enqueue(object : Callback<List<Recipe>>{
-            override fun onFailure(call: Call<List<Recipe>>, t: Throwable) {
+        retrofitInterface.getListOfRecipes().enqueue(object : Callback<AnswerFromInternet> {
+            override fun onFailure(call: Call<AnswerFromInternet>, t: Throwable) {
                 result.value = Result.Error(stringProvider.getStringById(R.string.internet_connection_error))
             }
 
-            override fun onResponse(call: Call<List<Recipe>>, response: Response<List<Recipe>>) {
+            override fun onResponse(call: Call<AnswerFromInternet>, response: Response<AnswerFromInternet>) {
                 val responseList = response.body()
                 if (!response.isSuccessful || responseList == null) {
                     result.value = Result.Error(stringProvider.getStringById(R.string.internet_connection_error))
                     return
                 }
-                if (responseList.isEmpty()) {
+                val recipes = responseList.recipes
+                if (recipes.isEmpty()) {
                     result.value = Result.Error(stringProvider.getStringById(R.string.no_items_error))
                 } else {
-                    result.value = Result.Success(responseList)
+                    result.value = Result.Success(recipes)
                 }
             }
 

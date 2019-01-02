@@ -8,6 +8,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.wordpress.lonelytripblog.ui.MainActivity
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 
 class NavigationTests {
@@ -22,6 +23,7 @@ class NavigationTests {
     }
 
     @Test
+    @Ignore("Flaky test. Mock ViewModel in ListFragment first")
     fun afterGoClickedProgressBarIsDisplayed() {
         onView(withText("Go")).perform(click())
 

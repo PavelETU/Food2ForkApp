@@ -47,12 +47,12 @@ class ViewModelTests {
 
     @Test
     fun onSuccessListDisplayed() {
-        val listOfRecipies = listOf(
+        val listOfRecipes = listOf(
             Recipe("First Title", "imageUrl"),
             Recipe("Second Title", "ImageUrlForSecond")
         )
-        fromRepo.value = Result.Success(listOfRecipies)
+        fromRepo.value = Result.Success(listOfRecipes)
 
-        verify(listOfRecipesObserver).onChanged(listOfRecipies)
+        verify(listOfRecipesObserver).onChanged(listOfRecipes)
     }
 }

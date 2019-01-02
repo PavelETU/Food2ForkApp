@@ -1,3 +1,3 @@
 package com.wordpress.lonelytripblog.data
 
-data class Recipe(private val title: String, private val imageRes: String)
+data class Recipe(val title: String, val image_url: String)
