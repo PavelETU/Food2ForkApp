@@ -1,6 +1,9 @@
-package com.wordpress.lonelytripblog
+package com.wordpress.lonelytripblog.utils
 
 import androidx.fragment.app.FragmentManager
+import com.wordpress.lonelytripblog.R
+import com.wordpress.lonelytripblog.ui.DefaultFragment
+import com.wordpress.lonelytripblog.ui.ListFragment
 
 class NavigationControllerImpl(private val manager: FragmentManager) : NavigationController {
     override fun goToDefaultFragment() {

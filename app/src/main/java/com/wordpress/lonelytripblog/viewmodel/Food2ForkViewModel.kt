@@ -1,4 +1,4 @@
-package com.wordpress.lonelytripblog
+package com.wordpress.lonelytripblog.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations

@@ -1,7 +1,10 @@
-package com.wordpress.lonelytripblog
+package com.wordpress.lonelytripblog.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.wordpress.lonelytripblog.utils.NavigationController
+import com.wordpress.lonelytripblog.utils.NavigationControllerImpl
+import com.wordpress.lonelytripblog.R
 
 class MainActivity : AppCompatActivity(), DefaultFragment.GoClickEventListener {
 

@@ -1,4 +1,4 @@
-package com.wordpress.lonelytripblog
+package com.wordpress.lonelytripblog.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.wordpress.lonelytripblog.R
 
 class DefaultFragment : Fragment() {
     private var listener: GoClickEventListener? = null

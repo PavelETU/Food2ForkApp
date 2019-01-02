@@ -1,4 +1,4 @@
-package com.wordpress.lonelytripblog
+package com.wordpress.lonelytripblog.utils
 
 interface NavigationController {
     fun goToDefaultFragment()
