@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.wordpress.lonelytripblog.R
 import com.wordpress.lonelytripblog.data.Recipe
 import com.wordpress.lonelytripblog.viewmodel.Food2ForkViewModel

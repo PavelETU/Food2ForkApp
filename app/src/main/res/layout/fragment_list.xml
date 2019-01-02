@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-             tools:context=".ui.ListFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ListFragment">
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -12,11 +13,11 @@
         android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_of_items"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:visibility="gone" />
+        android:id="@+id/list_of_items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <TextView
         android:id="@+id/message"
