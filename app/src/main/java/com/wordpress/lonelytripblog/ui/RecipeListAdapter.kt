@@ -23,7 +23,9 @@ class RecipeListAdapter(private val items: List<Recipe>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: RecipeListAdapter.RecipeViewHolder, position: Int) {
         val recipe = items[position]
-        Picasso.get().load(recipe.image_url).into(holder.imageView)
+        if (recipe.image_url.isNotEmpty()) {
+            Picasso.get().load(recipe.image_url).into(holder.imageView)
+        }
         holder.textView.text = recipe.title
     }
 

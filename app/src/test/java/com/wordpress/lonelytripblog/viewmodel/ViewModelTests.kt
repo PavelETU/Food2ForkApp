@@ -1,9 +1,8 @@
-package com.wordpress.lonelytripblog
+package com.wordpress.lonelytripblog.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.wordpress.lonelytripblog.viewmodel.Food2ForkViewModel
 import com.wordpress.lonelytripblog.data.Food2ForkRepository
 import com.wordpress.lonelytripblog.data.Recipe
 import com.wordpress.lonelytripblog.data.Result
