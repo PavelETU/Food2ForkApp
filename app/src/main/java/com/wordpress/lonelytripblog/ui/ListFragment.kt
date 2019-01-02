@@ -35,7 +35,6 @@ class ListFragment : Fragment() {
         progress_bar.visibility = View.GONE
         message.visibility = View.GONE
         list_of_items.visibility = View.VISIBLE
-        list_of_items.layoutManager = LinearLayoutManager(context)
         list_of_items.adapter = RecipeListAdapter(this)
     }
 

@@ -9,8 +9,15 @@ import retrofit2.Response
 
 class Food2ForkRepositoryImpl(private val retrofitInterface: RetrofitInterface,
                               private val stringProvider: StringProvider): Food2ForkRepository {
+    private val result: MutableLiveData<Result<List<Recipe>>> by lazy {
+        MutableLiveData<Result<List<Recipe>>>().also { updateResultFromInternet() }
+    }
+
     override fun getRecipes(): LiveData<Result<List<Recipe>>> {
-        val result = MutableLiveData<Result<List<Recipe>>>()
+        return result
+    }
+
+    private fun updateResultFromInternet() {
         retrofitInterface.getListOfRecipes().enqueue(object : Callback<AnswerFromInternet> {
             override fun onFailure(call: Call<AnswerFromInternet>, t: Throwable) {
                 result.value = Result.Error(stringProvider.getStringById(R.string.internet_connection_error))
@@ -31,7 +38,6 @@ class Food2ForkRepositoryImpl(private val retrofitInterface: RetrofitInterface,
             }
 
         })
-        return result
     }
 
 }
