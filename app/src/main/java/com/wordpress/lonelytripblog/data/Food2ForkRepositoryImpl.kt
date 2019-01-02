@@ -2,6 +2,7 @@ package com.wordpress.lonelytripblog.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.wordpress.lonelytripblog.BuildConfig
 import com.wordpress.lonelytripblog.R
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +23,7 @@ class Food2ForkRepositoryImpl(private val retrofitInterface: RetrofitInterface,
     }
 
     private fun updateResultFromInternet() {
-        retrofitInterface.getListOfRecipes().enqueue(object : Callback<AnswerFromInternet> {
+        retrofitInterface.getListOfRecipes(BuildConfig.API_KEY).enqueue(object : Callback<AnswerFromInternet> {
             override fun onFailure(call: Call<AnswerFromInternet>, t: Throwable) {
                 result.value = Result.Error(stringProvider.getStringById(R.string.internet_connection_error))
             }
@@ -34,7 +35,7 @@ class Food2ForkRepositoryImpl(private val retrofitInterface: RetrofitInterface,
                     return
                 }
                 val recipes = responseList.recipes
-                if (recipes.isEmpty()) {
+                if (recipes == null || recipes.isEmpty()) {
                     result.value = Result.Error(stringProvider.getStringById(R.string.no_items_error))
                 } else {
                     result.value = Result.Success(recipes)

@@ -1,10 +1,13 @@
 package com.wordpress.lonelytripblog.ui
 
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.wordpress.lonelytripblog.R
@@ -26,7 +29,13 @@ class RecipeListAdapter(private val items: List<Recipe>) : RecyclerView.Adapter<
         if (recipe.image_url.isNotEmpty()) {
             Picasso.get().load(recipe.image_url).into(holder.imageView)
         }
-        holder.textView.text = recipe.title
+        holder.textView.text =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(recipe.title, FROM_HTML_MODE_LEGACY).toString()
+        } else {
+            @Suppress("DEPRECATION")
+            Html.fromHtml(recipe.title).toString()
+        }
     }
 
     class RecipeViewHolder(val textView: TextView, val imageView: ImageView, itemView: View)
