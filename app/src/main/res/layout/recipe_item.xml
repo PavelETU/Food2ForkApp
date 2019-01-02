@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/corner_radius_for_card_view"
+    app:cardCornerRadius="@dimen/corner_radius_for_card_view">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_inside_card_view"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/food_image"
+            android:layout_width="@dimen/food_image_width"
+            android:layout_height="@dimen/food_image_height"
+            android:contentDescription="@string/food_image"
+            tools:src="@color/colorAccent"
+            android:layout_marginBottom="@dimen/margin_btw_text_and_image_in_card_view"/>
+
+        <TextView
+            android:id="@+id/recipe_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            tools:text="Burrito\nAnd taco" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

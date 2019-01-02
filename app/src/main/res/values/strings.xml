@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Food2ForkApp</string>
+    <string name="go">Go</string>
+    <string name="internet_connection_error">Network error occurred.\nPlease, check out internet connection</string>
+    <string name="no_items_error">Unfortunately there are no items available</string>
+    <string name="food_image">Food image</string>
 </resources>
